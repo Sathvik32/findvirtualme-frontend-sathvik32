@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+:root {
+  --bg: #0d1117;
+  --fg: #c9d1d9;
+  --accent: #58a6ff;
+  --font-mono: 'Source Code Pro', monospace;
+  --spacing: 1rem;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-mono); line-height: 1.5; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 960px; margin: 0 auto; padding: var(--spacing); }
+
+/* --- NavBar --- */
+.terminal-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: var(--spacing) 2rem; background: #010409;
+  border-bottom: 1px solid var(--accent);
+}
+.terminal-nav .logo { color: var(--accent); font-weight: bold; }
+.terminal-nav .links a {
+  color: var(--fg); margin-left: 1rem; font-family: var(--font-mono);
+}
+.terminal-nav .links a:hover { color: var(--accent); }
+
+/* --- page panels --- */
+.terminal {
+  background: #010409;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: var(--spacing);
+  margin-bottom: 2rem;             /* more space between sections */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* add consistent spacing inside each panel */
+.terminal h2,
+.terminal h3,
+.terminal p,
+.terminal ul {
+  margin-bottom: var(--spacing);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* indent bullet lists nicely */
+.terminal ul {
+  margin-left: 1.5rem;
+}
+.terminal li {
+  margin-bottom: 0.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* --- Experience & Projects cards --- */
+.exp-card, .proj-card {
+  background: #0d1117;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: var(--spacing);
+}
+.tags span {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  font-size: 0.875rem;
+}
+
+/* --- Contact page flex layout --- */
+.flex-row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: var(--spacing);
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.contact-form,
+.contact-info {
+  background: #010409;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: var(--spacing);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* form: full width inputs */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: var(--spacing);
+  padding: 0.5rem;
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  color: var(--fg);
+}
+
+/* submit button styling */
+.contact-form button {
+  padding: 0.75rem;
+  background: var(--accent);
+  border: none;
+  border-radius: 4px;
+  color: var(--bg);
+  cursor: pointer;
+  width: 100%;
+}
+
+/* contact-info aside style */
+.contact-info {
+  flex: 1;
 }
